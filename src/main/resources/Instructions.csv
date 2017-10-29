@@ -1,0 +1,9 @@
+Entity,Buy/Sell,AgreedFx,Currency,InstructionDate,SettlementDate,Units,Price per unit
+Singapore,B,0.50,SGD,01 Oct 2016,02 Oct 2016,200,100.25
+Helsinki,S,0.65,EUR,02 Oct 2016,02 Oct 2016,200,100.25
+Abu Dhabi,S,0.22,AED,05 Jan 2016,08 Jan 2016,450,150.5
+Helsinki,B,0.65,EUR,21 Mar 2016,20 Mar 2016,20,10.95
+Helsinki,S,0.65,EUR,20 Mar 2016,20 Mar 2016,20,10.95
+Moscow,S,0.12,RUB,05 Feb 2016,06 Feb 2016,50,80.7
+Moscow,S,0.12,RUB,06 Feb 2016,07 Feb 2016,50,80.7
+Riyadh,S,0.42,SAR,18 Jul 2015,16 Jul 2015,58,180.7
