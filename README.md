@@ -1,21 +1,21 @@
-# instruction-processor
-
 ASSUMPTIONS:
 
-1. Any version of Java can be used. I decided to use Java 8.
+1. Any version of Java can be used (Java 8).
 2. Instruction record table presented in the assignment is an analog of a DB table - which means that:
-    - the data model has been defined already 
-    - the data is stored permanently in a data storage and can be read by request from our report service at any point of time
-    - the data has been validated already before saving it into the storage
-3. Settlement date defines when the client wished the payment to be settled with respect to the instruction’s date - which means:
-    - if for some reason the instruction’s date is ahead of it’s settlement date (in other words - instruction has been received and processed by our system with a delay) we have to shift the settlement date to the instruction’s date.
-4. Report requrenments of the assignment don’t define how exactly data has to be structured - which means:
-    - the data can be represented by several tables and sorted by any column.
-    - default values can be flexible. For example:
-        - if for some entities we don’t have instructions with type SELL - we don’t define any ranks for that entity and don't display them in the report.
-        - if we requested a report with total amounts for a specific period of time - we don’t display records for those dates which have no instructions.
-        - if we requested a report with total amounts for a specific period of time - we display total amount as 0 for those instruction types which didn't take place for a specific date.
-    - in real life I would request more details about the report before proceeding with the task.
+    - the data model has been defined 
+    - the data is stored permanently in a data storage and can be requested by our report service at any point of time
+    - the data has been validated
+3. Settlement date defines when the client wished the payment to be settled with respect to Instruction date - which means:
+    - if for some reason the Instruction date is ahead of Settlement date (in other words - instruction has been received and processed by our system with a delay) we have to shift the Settlement date to the Instruction date.
+4. Assignment doesn't define strictly how report's data has to be represented - which means:
+    - the data can be represented by several tables
+    - can be sorted in a preferred way
+    - default values can be flexible. 
+    For example:
+        - if for some entities we don’t have instructions with type SELL - we don’t display any rank for that entity in the report.
+        - if we requested a report with total amounts for a specific period of time - we don’t display records for those dates which have no instructions settled.
+        - if we requested a report with total amounts for a specific period of time - we display total amount as 0 for  instruction types which didn't take place for a date.
+    In real life I would request more details about the report before proceeding with the task.
 
 
 IMPLEMENTATION NOTES:
@@ -75,9 +75,5 @@ ValueCalculator is responsible for calculation of instructions' total financial 
 
 InstructionProcessor is a main class:
 - has a section which defines all dependencies used by the service. It has to be replaced by a DI framework (Google Guice ...) for more complex projects.
-- most of the dependecies are singletons (their instances can be reused in the code), generally a simple static class would be used for such a small project. Assuming that this is a part of a bigger project. In that case we would need a better way to manage dependencies.
+- most of the dependencies are singletons (their instances can be reused in the code), generally a simple static class would be used for such a small project. Assuming that this is a part of a bigger project. In that case we would need a better way to manage dependencies.
 - settings for CSVAccessorConfig dependency can be stored in a config file of our project instead of being hardcoded.
-
-
-
-
